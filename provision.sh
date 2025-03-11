@@ -160,7 +160,7 @@ create_opensearch_service_role() {
     echo "Creating OpenSearch service-linked role..."
     aws iam get-role --role-name "AWSServiceRoleForAmazonOpenSearchService" >/dev/null 2>&1
     if [ $? -ne 0 ]; then
-        aws iam create-service-linked-role --aws-service-name es.amazonaws.com || {
+        aws iam create-service-linked-role --aws-service-name opensearchservice.amazonaws.com || {
             echo "Failed to create OpenSearch service-linked role"
             return 1
         }
